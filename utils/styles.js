@@ -1,6 +1,13 @@
 import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles({
+  brand: {
+    fontWeight: 'bold',
+    fontSize: '1.5rem',
+  },
+  grow: {
+    flexGrow: 1,
+  },
   navbar: {
     backgroundColor: '#203040',
     '& a': {
@@ -8,10 +15,10 @@ export const useStyles = makeStyles({
       marginLeft: 10,
     },
   },
-  main:{
-    minHeight:'80vh'
+  main: {
+    minHeight: '80vh',
   },
   footer: {
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+  },
 });

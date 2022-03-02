@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
     const jssStyles = document.querySelector('#jss-server-side');
     console.log(jssStyles);
     if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
+      jssStyles?.parentElement?.removeChild(jssStyles);
     }
   }, []);
   return <Component {...pageProps} />;

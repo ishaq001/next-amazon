@@ -41,7 +41,7 @@ export default function Home() {
                   </CardActionArea>
                   <CardActions>
                     <Typography>{`${product.price} $`}</Typography>
-                    <Button size="small" color="success" variant="outlined">
+                    <Button size="small" color="primary" variant="outlined">
                       Add to cart
                     </Button>
                   </CardActions>

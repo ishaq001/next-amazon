@@ -18,10 +18,11 @@ export const useStyles = makeStyles({
   main: {
     minHeight: '80vh',
   },
-  section:{
-    margin:"10px 0px"
+  section: {
+    margin: '10px 0px',
   },
   footer: {
+    marginTop: '10px',
     textAlign: 'center',
   },
 });

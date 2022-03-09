@@ -91,7 +91,7 @@ export default function ProductScreen() {
                 </Grid>
               </ListItem>
               <ListItem>
-                <Button fullWidth color="primary" variant="contained">
+                <Button color="primary" variant="contained" fullWidth>
                   Add to cart
                 </Button>
               </ListItem>

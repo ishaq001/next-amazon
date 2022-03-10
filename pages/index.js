@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { Layout } from '../components';
+import NextLink from 'next/link';
 import {
   Button,
   Card,
@@ -26,22 +27,24 @@ export default function Home() {
             return (
               <Grid item md={4} key={product.id}>
                 <Card>
-                  <CardActionArea>
-                    <CardMedia
-                      //height={'330vh'}
-                      component="img"
-                      image={product.image}
-                      title={product.title}
-                    ></CardMedia>
-                    <CardContent>
-                      <Typography>
-                        {product.title.slice(0, 20) + '...'}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
+                  <NextLink href={`/product/${product.id}`} passHref>
+                    <CardActionArea>
+                      <CardMedia
+                        //height={'330vh'}
+                        component="img"
+                        image={product.image}
+                        title={product.title}
+                      ></CardMedia>
+                      <CardContent>
+                        <Typography>
+                          {product.title.slice(0, 20) + '...'}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </NextLink>
                   <CardActions>
                     <Typography>{`${product.price} $`}</Typography>
-                    <Button size="small" color="success" variant="outlined">
+                    <Button size="small" color="primary" variant="contained">
                       Add to cart
                     </Button>
                   </CardActions>

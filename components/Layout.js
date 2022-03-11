@@ -17,11 +17,18 @@ import Cookies from 'js-cookie';
 import { useStyles } from './../utils/styles';
 import { Store } from './../context/store';
 
+/**
+ * It creates a layout for our pages
+ * @returns The Layout component is returning a div element with a container element inside of it. The
+ * container element is the parent element of the children elements.
+ */
 export const Layout = ({ title, description, children }) => {
   const { state, dispatch } = useContext(Store);
   const { darkMode } = state;
-  console.log('darkmode', darkMode);
-
+  /* Creating a theme for our application. We are using the `createTheme` function from
+  `@material-ui/core` to create a theme. The `createTheme` function is a function that takes a theme
+  object as a parameter and returns a new theme object. The theme object is an object that contains
+  the typography, palette and other properties that are used to style our application. */
   const theme = createTheme({
     typography: {
       h1: {
@@ -50,6 +57,10 @@ export const Layout = ({ title, description, children }) => {
   });
   const classes = useStyles();
 
+  /**
+   *If the dark mode cookie is set to ON, then set the dark mode state to ON. 
+   * Otherwise, set the dark mode state to OFF.*
+   */
   function darkModeHandler() {
     dispatch({ type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON' });
     const newDarkMode = !darkMode;

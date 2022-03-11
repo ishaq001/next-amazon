@@ -16,12 +16,17 @@ import {
 import { useStyles } from '../../utils/styles';
 import data from '../../dummy-data/prodects-data.json';
 
+/**
+ * It renders the product page.
+ * @returns The `Layout` component is being returned.
+ */
 export default function ProductScreen() {
   const classes = useStyles();
   const router = useRouter();
 
   const { id } = router.query;
-  console.log('id', id, data);
+  /* Checking if the product exists in the data array. If it doesn't exist, it will return a div with
+  the text "Product not found." */
   const product = data.find((product) => product.id === +id);
   if (!product) {
     return <div>Product not found.</div>;

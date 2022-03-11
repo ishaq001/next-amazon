@@ -1,6 +1,7 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
+/* It's a React component that extends the Document class */
 export default class MyDocument extends Document {
   render() {
     return (
@@ -20,6 +21,7 @@ export default class MyDocument extends Document {
   }
 }
 
+/* A way to inject the Material-UI styles into the document. */
 MyDocument.getInitialProps = async (ctx) => {
   const sheets = new ServerStyleSheets();
   const originalRenderPage = ctx.renderPage;

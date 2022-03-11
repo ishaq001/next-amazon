@@ -17,6 +17,10 @@ import {
 } from '@material-ui/core';
 import Data from '../dummy-data/prodects-data.json';
 
+/**
+ * It renders a list of products.
+ * @returns The return is a layout with a grid of products.
+ */
 export default function Home() {
   return (
     <Layout>

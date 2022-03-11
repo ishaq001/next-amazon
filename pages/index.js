@@ -11,23 +11,22 @@ import {
   CardContent,
   CardMedia,
   Grid,
-  List,
-  ListItem,
   Typography,
 } from '@material-ui/core';
-import Data from '../dummy-data/prodects-data.json';
+import { data } from '../dummy-data/prodects-data';
 
 /**
  * It renders a list of products.
  * @returns The return is a layout with a grid of products.
  */
 export default function Home() {
+  const { products } = data;
   return (
     <Layout>
       <div>
         <h1>Products</h1>
         <Grid container spacing={4}>
-          {Data.map((product) => {
+          {products.map((product) => {
             return (
               <Grid item md={4} key={product.id}>
                 <Card>

@@ -14,8 +14,7 @@ import {
 } from '@material-ui/core';
 
 import { useStyles } from '../../utils/styles';
-import data from '../../dummy-data/prodects-data.json';
-
+import { data } from '../../dummy-data/prodects-data';
 /**
  * It renders the product page.
  * @returns The `Layout` component is being returned.
@@ -27,7 +26,7 @@ export default function ProductScreen() {
   const { id } = router.query;
   /* Checking if the product exists in the data array. If it doesn't exist, it will return a div with
   the text "Product not found." */
-  const product = data.find((product) => product.id === +id);
+  const product = data.products.find((product) => product.id === +id);
   if (!product) {
     return <div>Product not found.</div>;
   }

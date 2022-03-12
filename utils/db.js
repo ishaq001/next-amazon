@@ -43,7 +43,20 @@ async function disconnect() {
   }
 }
 
+/**
+ * Convert a document from the database to an object
+ * @param doc - The document to be converted.
+ * @returns a new object that has been converted from a document to an object.
+ */
+function convertDocToObj(doc) {
+  doc._id = doc._id.toString();
+  doc.createdAt = doc.createdAt.toString();
+  doc.updatedAt = doc.updatedAt.toString();
+  return doc;
+}
+
 export const database = {
   connect,
   disconnect,
+  convertDocToObj,
 };

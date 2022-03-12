@@ -1,7 +1,3 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import { Layout } from '../components';
 import NextLink from 'next/link';
 import {
   Button,
@@ -13,20 +9,23 @@ import {
   Grid,
   Typography,
 } from '@material-ui/core';
-import { data } from '../dummy-data/prodects-data';
+
+import { Layout } from '../components';
+import { database } from './../utils/db';
+import { Product } from '../models/Product';
 
 /**
  * It renders a list of products.
  * @returns The return is a layout with a grid of products.
  */
-export default function Home() {
-  const { products } = data;
+export default function Home(props) {
+  const { products } = props;
   return (
     <Layout>
       <div>
         <h1>Products</h1>
         <Grid container spacing={4}>
-          {products.map((product) => {
+          {products?.map((product) => {
             return (
               <Grid item md={4} key={product.id}>
                 <Card>
@@ -59,4 +58,20 @@ export default function Home() {
       </div>
     </Layout>
   );
+}
+
+/**
+ * Get all products from the database and return them as props
+ * @returns The props object is being returned.
+ */
+export async function getServerSideProps() {
+  await database.connect();
+  const products = await Product.find({}).lean();
+  console.log('products', products);
+  await database.disconnect();
+  return {
+    props: {
+      products: products?.map(database.convertDocToObj),
+    },
+  };
 }

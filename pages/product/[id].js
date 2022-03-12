@@ -1,6 +1,4 @@
-import { useRouter } from 'next/router';
 import React from 'react';
-import { Layout } from '../../components';
 import NextLink from 'next/link';
 import Image from 'next/image';
 import {
@@ -13,20 +11,18 @@ import {
   Button,
 } from '@material-ui/core';
 
+import { Layout } from '../../components';
 import { useStyles } from '../../utils/styles';
-import { data } from '../../dummy-data/prodects-data';
+import { database } from './../../utils/db';
+import { Product } from './../../models/Product';
+
 /**
  * It renders the product page.
  * @returns The `Layout` component is being returned.
  */
-export default function ProductScreen() {
+export default function ProductScreen(props) {
   const classes = useStyles();
-  const router = useRouter();
-
-  const { id } = router.query;
-  /* Checking if the product exists in the data array. If it doesn't exist, it will return a div with
-  the text "Product not found." */
-  const product = data.products.find((product) => product.id === +id);
+  const { product } = props;
   if (!product) {
     return <div>Product not found.</div>;
   }
@@ -105,4 +101,19 @@ export default function ProductScreen() {
       </Grid>
     </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const {
+    params: { id },
+  } = context;
+
+  await database.connect();
+  const product = await Product.findOne({ id }).lean();
+  await database.disconnect();
+  return {
+    props: {
+      product: database.convertDocToObj(product),
+    },
+  };
 }

@@ -1,4 +1,4 @@
-import NextLink from 'next/link';
+import NextLink from "next/link";
 import {
   Button,
   Card,
@@ -8,11 +8,11 @@ import {
   CardMedia,
   Grid,
   Typography,
-} from '@material-ui/core';
+} from "@material-ui/core";
 
-import { Layout } from '../components';
-import { database } from './../utils/db';
-import { Product } from '../models/Product';
+import { Layout } from "../components";
+import { database } from "./../utils/db";
+import { Product } from "../models/Product";
 
 /**
  * It renders a list of products.
@@ -39,7 +39,7 @@ export default function Home(props) {
                       ></CardMedia>
                       <CardContent>
                         <Typography>
-                          {product.title.slice(0, 20) + '...'}
+                          {product.title.slice(0, 20) + "..."}
                         </Typography>
                       </CardContent>
                     </CardActionArea>
@@ -67,7 +67,7 @@ export default function Home(props) {
 export async function getServerSideProps() {
   await database.connect();
   const products = await Product.find({}).lean();
-  console.log('products', products);
+  console.log("products", products);
   await database.disconnect();
   return {
     props: {

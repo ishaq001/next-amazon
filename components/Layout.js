@@ -8,14 +8,14 @@ import {
   ThemeProvider,
   CssBaseline,
   Switch,
-} from '@material-ui/core';
-import Head from 'next/head';
-import NextLink from 'next/link';
-import { useContext } from 'react';
-import Cookies from 'js-cookie';
+} from "@material-ui/core";
+import Head from "next/head";
+import NextLink from "next/link";
+import { useContext } from "react";
+import Cookies from "js-cookie";
 
-import { useStyles } from './../utils/styles';
-import { Store } from './../context/store';
+import { useStyles } from "./../utils/styles";
+import { Store } from "./../context/store";
 
 /**
  * It creates a layout for our pages
@@ -32,44 +32,44 @@ export const Layout = ({ title, description, children }) => {
   const theme = createTheme({
     typography: {
       h1: {
-        fontSize: '1.6rem',
+        fontSize: "1.6rem",
         fontWeight: 400,
-        margin: '1rem 0',
+        margin: "1rem 0",
       },
       h2: {
-        fontSize: '1.4rem',
+        fontSize: "1.4rem",
         fontWeight: 400,
-        margin: '1rem 0',
+        margin: "1rem 0",
       },
       body1: {
-        fontWeight: 'normal',
+        fontWeight: "normal",
       },
     },
     palette: {
-      type: darkMode ? 'dark' : 'light',
+      type: darkMode ? "dark" : "light",
       primary: {
-        main: '#f0c000',
+        main: "#f0c000",
       },
       secondary: {
-        main: '#208080',
+        main: "#208080",
       },
     },
   });
   const classes = useStyles();
 
   /**
-   *If the dark mode cookie is set to ON, then set the dark mode state to ON. 
+   *If the dark mode cookie is set to ON, then set the dark mode state to ON.
    * Otherwise, set the dark mode state to OFF.*
    */
   function darkModeHandler() {
-    dispatch({ type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON' });
+    dispatch({ type: darkMode ? "DARK_MODE_OFF" : "DARK_MODE_ON" });
     const newDarkMode = !darkMode;
-    Cookies.set('darkMode', newDarkMode ? 'ON' : 'OFF');
+    Cookies.set("darkMode", newDarkMode ? "ON" : "OFF");
   }
   return (
     <div>
       <Head>
-        <title>{title ? `${title} - Next Amazonn` : 'Next Amazon'}</title>
+        <title>{title ? `${title} - Next Amazonn` : "Next Amazon"}</title>
         {description && <meta name="description" content={description}></meta>}
       </Head>
 

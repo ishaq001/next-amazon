@@ -1,6 +1,6 @@
-import React from 'react';
-import NextLink from 'next/link';
-import Image from 'next/image';
+import React from 'react'
+import NextLink from 'next/link'
+import Image from 'next/image'
 import {
   Grid,
   Link,
@@ -9,22 +9,22 @@ import {
   ListItem,
   Card,
   Button,
-} from '@material-ui/core';
+} from '@material-ui/core'
 
-import { Layout } from '../../components';
-import { useStyles } from '../../utils/styles';
-import { database } from './../../utils/db';
-import { Product } from './../../models/Product';
+import { Layout } from '../../components'
+import { useStyles } from '../../utils/styles'
+import { database } from './../../utils/db'
+import { Product } from './../../models/Product'
 
 /**
  * It renders the product page.
  * @returns The `Layout` component is being returned.
  */
 export default function ProductScreen(props) {
-  const classes = useStyles();
-  const { product } = props;
+  const classes = useStyles()
+  const { product } = props
   if (!product) {
-    return <div>Product not found.</div>;
+    return <div>Product not found.</div>
   }
 
   return (
@@ -33,7 +33,7 @@ export default function ProductScreen(props) {
       title={product.title.slice(0, 10)}
     >
       <div className={classes.section}>
-        <NextLink href="/" passHref>
+        <NextLink href='/' passHref>
           <Link>Back to Products</Link>
         </NextLink>
       </div>
@@ -44,13 +44,13 @@ export default function ProductScreen(props) {
             alt={product.id}
             width={640}
             height={640}
-            layout="responsive"
+            layout='responsive'
           />
         </Grid>
         <Grid item md={3} xs={12}>
           <List>
             <ListItem>
-              <Typography variant="h1" component="h1">
+              <Typography variant='h1' component='h1'>
                 {product.title}
               </Typography>
             </ListItem>
@@ -91,7 +91,7 @@ export default function ProductScreen(props) {
                 </Grid>
               </ListItem>
               <ListItem>
-                <Button color="primary" variant="contained" fullWidth>
+                <Button color='primary' variant='contained' fullWidth>
                   Add to cart
                 </Button>
               </ListItem>
@@ -100,20 +100,20 @@ export default function ProductScreen(props) {
         </Grid>
       </Grid>
     </Layout>
-  );
+  )
 }
 
 export async function getServerSideProps(context) {
   const {
     params: { id },
-  } = context;
+  } = context
 
-  await database.connect();
-  const product = await Product.findOne({ id }).lean();
-  await database.disconnect();
+  await database.connect()
+  const product = await Product.findOne({ id }).lean()
+  await database.disconnect()
   return {
     props: {
       product: database.convertDocToObj(product),
     },
-  };
+  }
 }

@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "next test"
+    "lint:fix": "next lint --fix",
+    "test": "next test",
+    "prepare": "husky install",
+    "prettier": "prettier --write",
+    "prettier:fix": "prettier --check"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
@@ -20,6 +24,15 @@
   },
   "devDependencies": {
     "eslint": "8.10.0",
-    "eslint-config-next": "12.1.0"
+    "eslint-config-next": "12.1.0",
+    "husky": "^7.0.0"
+  },
+  "lint-staged": {
+    "**'*.{js, ts, jsx, tsx}": [
+      "yarn lint",
+      "yarn lint:fix",
+      "yarn prettier",
+      "yarn prettier:fix"
+    ]
   }
 }

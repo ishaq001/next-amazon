@@ -1,3 +1,6 @@
 {
-  "extends": ["next/core-web-vitals", "next", "eslint:recommender"]
+	"extends": ["next/core-web-vitals", "eslint:recommended", "next", "prettier"],
+	"env": {
+		"browser": true
+	}
 }

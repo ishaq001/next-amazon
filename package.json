@@ -1,40 +1,37 @@
 {
-  "name": "amazon",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
-    "test": "next test",
-    "prepare": "husky install",
-    "prettier": "prettier --write",
-    "prettier:fix": "prettier --check"
-  },
-  "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "js-cookie": "^3.0.1",
-    "mongoose": "^6.2.5",
-    "next": "12.1.0",
-    "next-connect": "^0.12.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
-  },
-  "devDependencies": {
-    "eslint": "8.10.0",
-    "eslint-config-next": "12.1.0",
-    "eslint-config-prettier": "^8.5.0",
-    "husky": "^7.0.0",
-    "lint-staged": "^12.3.6",
-    "prettier": "^2.6.0"
-  },
-  "lint-staged": {
-    "*/*.{js,jsx,ts,tsx,css}": [
-      "eslint --fix",
-      "yarn prettier",
-      "yarn prettier:fix"
-    ]
-  }
+	"name": "amazon",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"lint:fix": "next lint --fix",
+		"test": "next test",
+		"prepare": "husky install",
+		"prettier": "prettier --write "
+	},
+	"dependencies": {
+		"@material-ui/core": "^4.12.3",
+		"js-cookie": "^3.0.1",
+		"mongoose": "^6.2.5",
+		"next": "12.1.0",
+		"next-connect": "^0.12.2",
+		"react": "17.0.2",
+		"react-dom": "17.0.2"
+	},
+	"devDependencies": {
+		"eslint": "8.10.0",
+		"eslint-config-next": "12.1.0",
+		"eslint-config-prettier": "^8.5.0",
+		"husky": "^7.0.0",
+		"lint-staged": "^12.3.6",
+		"prettier": "^2.6.0"
+	},
+	"lint-staged": {
+		"*/*.{js,jsx,ts,tsx,css}": [
+			"yarn prettier"
+		]
+	}
 }

@@ -1,19 +1,6 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "eslint:recommended",
-    "prettier",
-    "next",
-    "eslint:recommended"
-  ],
-  "env": {
-    "browser": true
-  },
-  "rules": {
-    "no-unused-vars": "error",
-    "semi": ["error", "never"],
-    "eqeqeq": ["warn"],
-    "quotes": ["error", "single"],
-    "no-cond-assign": ["error", "always"]
-  }
+	"extends": ["next/core-web-vitals", "eslint:recommended", "next", "prettier"],
+	"env": {
+		"browser": true
+	}
 }

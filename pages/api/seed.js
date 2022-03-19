@@ -7,15 +7,15 @@ const handler = nc()
 
 /* This is a middleware function that will be executed on every request. */
 handler.get(async (req, res) => {
-  await database.connect()
-  await Product.deleteMany()
-  await Product.insertMany(data.products)
+	await database.connect()
+	await Product.deleteMany()
+	await Product.insertMany(data.products)
 
-  console.log(Product)
-  await database.disconnect()
-  res.send({
-    message: 'Seeded Successfully',
-  })
+	console.log(Product)
+	await database.disconnect()
+	res.send({
+		message: 'Seeded Successfully',
+	})
 })
 
 export default handler
